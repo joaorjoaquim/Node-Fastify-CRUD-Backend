@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import dbConnector from "./database";
 const mongoose = require("../src/database");
 
 async function main() {
@@ -6,18 +7,13 @@ async function main() {
     logger: true,
   });
 
+  fastify.register(dbConnector);
+
   fastify.get("/users", () => {
     return { user: "teste 1" };
   });
 
   fastify.post("/users", async () => {
-    // const post = await prisma.user.create({
-    //   data: {
-    //     name: "João",
-    //     email: "joaorjoaquim@teste.com",
-    //     password: "123456",
-    //   },
-    // });
     return { post: "ok" };
   });
 
