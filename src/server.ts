@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+const mongoose = require("../src/database");
 
 async function main() {
   const fastify = Fastify({
