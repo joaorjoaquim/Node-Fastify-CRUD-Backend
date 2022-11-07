@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import { userRoutes } from "./app/routes/user";
 import dbConnector from "./database";
 const mongoose = require("../src/database");
 
@@ -9,9 +10,7 @@ async function main() {
 
   fastify.register(dbConnector);
 
-  fastify.get("/users", () => {
-    return { user: "teste 1" };
-  });
+  await fastify.register(userRoutes);
 
   fastify.post("/users", async () => {
     return { post: "ok" };
