@@ -30,11 +30,13 @@ const UserSchema: Schema = new Schema({
   },
 });
 
-UserSchema.pre<IUser>("save", async function () {
+UserSchema.pre<IUser>("save", async function (next) {
   const hash = await bcrypt.hash(this.password, 10);
   this.password = hash;
+
+  next();
 });
 
 const User = model<IUser>("User", UserSchema);
 
-module.exports = User;
+export default User;
