@@ -1,9 +1,9 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=400px height=200px src="crud_logo.png" alt="Project logo"></a>
+ <img width=350px height=300px src="https://cdn3.iconfinder.com/data/icons/search-engine-optimization-plus/64/crud_create_read_update_delete-512.png" alt="Project logo"></a>
 </p>
 
-<h3 align="center">A CRUD with Express and MongoDB</h3>
+<h3 align="center">A CRUD Backend with Fastify, Typescript and MongoDB</h3>
 
 <div align="center">
 
@@ -34,7 +34,7 @@ These instructions will get you a copy of the project up and running on your loc
 What packages do you need to install the software.
 
 ```
--NodeJS    
+-NodeJS
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "express": "^4.18.1",
@@ -58,7 +58,9 @@ There are 5 different requests to test the CRUD and two others, to Register a us
 For all requests, you will need to save the token (generated when a user is created) as Bearer Token authorization type (wich you get in the response of the Authenticate request).
 
 #### POST Register
-This is a request to register a user. Expect a JSON in the format below with the URL http://localhost:3000/auth/register 
+
+This is a request to register a user. Expect a JSON in the format below with the URL http://localhost:3000/auth/register
+
 ```
 {
   "name": "User name",
@@ -66,8 +68,11 @@ This is a request to register a user. Expect a JSON in the format below with the
   "password": "User password"
 }
 ```
+
 #### POST Authenticate
+
 This is a request to Authenticate a user. Expect a JSON in the format below with the URL http://localhost:3000/auth/authenticate
+
 ```
 {
   "email": "User email",
@@ -76,17 +81,23 @@ This is a request to Authenticate a user. Expect a JSON in the format below with
 ```
 
 #### GET List
+
 This is a request that returns all registered projects. Don't need to pass params through a JSON, just run the request with the URL: http://localhost:3000/projects
 
 #### GET Show
+
 This is a request that returns an specific project. Don't need to pass params through a JSON, just run the request with the URL: http://localhost:3000/projects/+projectId
 
 Example
+
 ```
 http://localhost:3000/projects/633216f1c7c06fdbfe9dd64c
 ```
+
 #### POST Create
+
 This is a request to create a project. Expect a JSON in the format below with the URL http://localhost:3000/projects
+
 ```
 {
   "title": "Project title",
@@ -99,8 +110,11 @@ This is a request to create a project. Expect a JSON in the format below with th
   ]
 }
 ```
+
 #### PUT Update
+
 This is a request that returns an updated project. Expect a JSON in the format below with the URL: http://localhost:3000/projects/+projectId
+
 ```
 URL Example http://localhost:3000/projects/633339a0cf3abd4ffb85c44f
 JSON expected.
@@ -115,12 +129,14 @@ JSON expected.
     ]
 }
 ```
+
 #### DEL Delete
+
 This is a request that delete an specific project. Don't need to pass params through a JSON, just run the request with the URL passing the project's Id: http://localhost:3000/projects/+projectId
+
 ```
 http://localhost:3000/projects/633216f1c7c06fdbfe9dd64c
 ```
-
 
 ## 📁 Structures <a name="structures"></a>
 
@@ -157,7 +173,6 @@ app/
 - [MongoDB](https://www.mongodb.com/) - MongoDB
 - [NodeJS](https://nodejs.org/en/) - NodeJS
 - [ExpressJS](https://expressjs.com/) - ExpressJS
-
 
 ## ✍️ Authors <a name = "authors"></a>
 
