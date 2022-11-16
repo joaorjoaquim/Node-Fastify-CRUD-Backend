@@ -177,7 +177,7 @@ app/
 
 - [MongoDB](https://www.mongodb.com/) - MongoDB
 - [NodeJS](https://nodejs.org/en/) - NodeJS
-- [ExpressJS](https://expressjs.com/) - ExpressJS
+- [Fastify](https://www.fastify.io/) - Fastify
 
 ## ✍️ Authors <a name = "authors"></a>
 
