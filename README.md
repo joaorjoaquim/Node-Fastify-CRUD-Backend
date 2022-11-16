@@ -35,13 +35,18 @@ What packages do you need to install the software.
 
 ```
 -NodeJS
+    "@fastify/cors": "^8.2.0",
+    "@fastify/jwt": "^6.3.2",
+    "@fastify/mongodb": "^6.1.0",
+    "@types/bcryptjs": "^2.4.2",
+    "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.20.0",
-    "express": "^4.18.1",
-    "fs": "^0.0.1-security",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.9.2",
+    "fastify-plugin": "^4.3.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.6.1",
-    "path": "^0.12.7"
+    "mongoose": "^6.7.1",
+    "zod": "^3.19.1"
 ```
 
 ### Runing & Usage
