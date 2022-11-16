@@ -27,7 +27,7 @@ export async function userRoutes(fastify: FastifyInstance) {
 
     const { email, password } = createUserBody.parse(request.body);
 
-    const user = await userCollection.findOne({ email }).select("+password");
+    const user = await userCollection.findOne({ email });
 
     const crypted = fastify.jwt.sign(
       {
@@ -44,6 +44,7 @@ export async function userRoutes(fastify: FastifyInstance) {
       email,
       password,
       token: crypted,
+      user,
     });
   });
 
