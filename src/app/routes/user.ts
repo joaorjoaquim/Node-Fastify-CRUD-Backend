@@ -26,8 +26,21 @@ export async function userRoutes(fastify: FastifyInstance) {
     });
 
     const { email, password } = createUserBody.parse(request.body);
-
+    const hash = await bcrypt.hash(password, 10);
     const user = await userCollection.findOne({ email });
+    let test1 = false;
+    let test2 = false;
+
+    if (!(await bcrypt.compare(password, user.password))) {
+      test1 = true;
+    } else {
+      test1 = false;
+    }
+    if (!(await bcrypt.compare(hash, user.password))) {
+      test2 = true;
+    } else {
+      test2 = false;
+    }
 
     const crypted = fastify.jwt.sign(
       {
@@ -43,8 +56,11 @@ export async function userRoutes(fastify: FastifyInstance) {
     reply.send({
       email,
       password,
+      hash,
       token: crypted,
       user,
+      test1,
+      test2,
     });
   });
 
