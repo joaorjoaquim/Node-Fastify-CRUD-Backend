@@ -26,6 +26,9 @@ export async function userRoutes(fastify: FastifyInstance) {
     });
 
     const { email, password } = createUserBody.parse(request.body);
+
+    const user = await userCollection.findOne({ email }).select("+password");
+
     const crypted = fastify.jwt.sign(
       {
         email: email,
@@ -57,7 +60,7 @@ export async function userRoutes(fastify: FastifyInstance) {
     const user = new User(aux);
 
     const response = await userCollection.insertOne(user);
-    fastify.mongo.db.addUser;
+    //fastify.mongo.db.addUser;
 
     return reply.send({ response, aux, user });
   });
