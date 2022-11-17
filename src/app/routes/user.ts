@@ -26,19 +26,17 @@ export async function userRoutes(fastify: FastifyInstance) {
     });
 
     const { email, password } = createUserBody.parse(request.body);
-    const hash = await bcrypt.hash(password, 10);
     const user = await userCollection.findOne({ email });
-    let test1 = false;
+
+    if (!user) return reply.status(400).send({ error: "User not found" });
 
     if (!(await bcrypt.compare(password, user.password))) {
-      test1 = false;
-    } else {
-      test1 = true;
+      return reply.status(400).send({ error: "Invalid password" });
     }
 
     const crypted = fastify.jwt.sign(
       {
-        email: email,
+        id: user._id,
       },
       {
         sub: email,
@@ -48,12 +46,8 @@ export async function userRoutes(fastify: FastifyInstance) {
     // const testedCrypted = generateToken({ id: email });
     // console.log(process.env.SECRET);
     reply.send({
-      email,
-      password,
-      hash,
-      token: crypted,
       user,
-      test1,
+      token: crypted,
     });
   });
 
