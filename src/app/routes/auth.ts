@@ -15,7 +15,7 @@ export async function authRoutes(fastify: FastifyInstance) {
     }
   );
 
-  fastify.post("/users", async (request) => {
+  fastify.post("/access", async (request) => {
     const createUserBody = z.object({
       access_token: z.string(),
     });
